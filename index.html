@@ -1,767 +1,172 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#f6c900">
-
-<title>AshArchives — MBBS learning platform</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f4f0">
+  <title>AshArrow BHMS — Study Smarter</title>
+  <meta name="description" content="Your BHMS study hub for subjects, revision and Materia Medica lectures.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#home">
+      <span class="brand-icon">A↗</span>
+      <span><b>AshArrow</b><small>BHMS STUDY HUB</small></span>
+    </a>
 
-<header>
-    <nav class="nav">
+    <p class="side-label">WORKSPACE</p>
+    <a class="nav-link active" href="#home">⌂ &nbsp; Overview</a>
+    <a class="nav-link" href="#subjects">▦ &nbsp; All subjects</a>
+    <a class="nav-link" href="#materia">✳ &nbsp; Materia Medica</a>
+    <a class="nav-link" href="#resources">▤ &nbsp; Resources</a>
 
-        <div class="brand">
-            <div class="brand-mark">aA</div>
-            <div>
-                <div class="brand-name">ashArchives</div>
-                <div class="brand-sub">Comprehensive MBBS Buddy • MUHS High-Yield</div>
-            </div>
-        </div>
+    <p class="side-label year-heading">PROFESSIONAL YEAR</p>
+    <button class="year-button active" data-year="all">◉ &nbsp; All years</button>
+    <button class="year-button" data-year="1">○ &nbsp; First BHMS</button>
+    <button class="year-button" data-year="2">○ &nbsp; Second BHMS</button>
+    <button class="year-button" data-year="3">○ &nbsp; Third BHMS</button>
+    <button class="year-button" data-year="4">○ &nbsp; Fourth BHMS</button>
 
-        <div class="nav-actions">
-            <button class="nav-btn active" onclick="showPage('home',this)">
-                <span>Study</span>⌂
-            </button>
-
-            <button class="nav-btn" onclick="showPage('pyq',this)">
-                <span>PYQs</span>◫
-            </button>
-
-            <button class="nav-btn" onclick="showPage('dashboard',this)">
-                <span>High Yield</span>◆
-            </button>
-        </div>
-
-    </nav>
-</header>
-
-<main>
-
-<div class="container">
-
-<!-- ========================================================= -->
-<!-- HOME -->
-<!-- ========================================================= -->
-
-<section id="home" class="page active">
-
-    <div class="hero">
-
-        <div class="hero-main">
-
-            <div class="kicker">
-                AI Based MBBS Learning • MUHS EXAM ENGINE
-            </div>
-
-            <h1>
-                Study less.<br>
-                <span>Answer better.</span>
-            </h1>
-
-            <p class="hero-copy">
-                AshArchives converts any MBBS topic or university question
-                into a structured, high-scoring undergraduate answer prompt.
-                Built around headings, classifications, mechanisms,
-                clinical relevance, diagrams, tables and examination priorities.
-            </p>
-
-            <div class="btn-row">
-                <button class="yellow-btn" onclick="focusBuilder()">
-                    Build an Answer
-                </button>
-
-                <button class="secondary" onclick="openPYQSubjectModal()">
-                    Explore PYQs
-                </button>
-            </div>
-
-        </div>
-
-        <div class="hero-side">
-
-            <div>
-                <div class="kicker">DATABASE</div>
-
-                <div class="stat-grid">
-
-                    <div class="stat">
-                        <strong id="totalQuestions">0</strong>
-                        <span>Indexed questions</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>7</strong>
-                        <span>Major subjects</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>4</strong>
-                        <span>Priority tiers</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>2</strong>
-                        <span>Question formats</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="hero-note">
-                <strong>Exam-first engine</strong><br>
-                Tier 1 & 4-star questions are surfaced first. Use the PYQ database
-                to identify what deserves revision before moving into
-                lower-yield material.
-            </div>
-
-        </div>
-
+    <div class="sidebar-bottom">
+      <div class="side-note">
+        <span>✦</span>
+        <b>Small steps. Strong concepts.</b>
+        <p>Your BHMS journey, organised in one place.</p>
+      </div>
+      <small class="credit">Developed by <b>asharism.co</b></small>
     </div>
+  </aside>
 
+  <main id="home">
+    <header class="topbar">
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <div class="breadcrumb">Workspace <span>/</span> Overview</div>
+      <div class="top-right"><i></i> Made for BHMS students <span class="avatar">A</span></div>
+    </header>
 
-    <!-- ANSWER BUILDER -->
-
-    <div class="panel" id="answerBuilder">
-
-        <div class="section-head">
-
-            <div>
-                <h2>AI Answer Builder</h2>
-                <p>
-                    Enter a topic, choose the subject and let AshArchives
-                    construct the university-answer prompt.
-                </p>
-            </div>
-
-            <div class="status">
-                <span class="status-dot"></span>
-                MBBS UG mode
-            </div>
-
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">YOUR STUDY SPACE, SIMPLIFIED</div>
+        <h1>Learn with clarity.<br><span>Prepare with purpose.</span></h1>
+        <p>One focused space for your BHMS subjects, revision and learning resources — from first year to final year.</p>
+        <div class="hero-actions">
+          <a class="button dark" href="#subjects">Explore subjects <span>↗</span></a>
+          <a class="simple-link" href="#materia">Watch demo lecture →</a>
         </div>
-
-        <div class="builder">
-
-            <div class="field">
-                <label>SUBJECT</label>
-
-                <select id="answerSubject">
-                    <option>Pathology</option>
-                    <option>Pharmacology</option>
-                    <option>Microbiology</option>
-                    <option>Forensic Medicine & Toxicology</option>
-                    <option>Anatomy</option>
-                    <option>Physiology</option>
-                    <option>Biochemistry</option>
-                </select>
-            </div>
-
-
-            <div class="field">
-                <label>PAPER</label>
-
-                <select id="answerPaper">
-                    <option>Paper I</option>
-                    <option>Paper II</option>
-                    <option>Not specified</option>
-                </select>
-            </div>
-
-
-            <div class="field full">
-
-                <label>TOPIC / QUESTION</label>
-
-                <textarea
-                    id="topicInput"
-                    placeholder="Example: Explain organophosphorus poisoning and its management."
-                ></textarea>
-
-            </div>
-
-
-            <div class="field full">
-
-                <label>ANSWER TYPE</label>
-
-                <div class="answer-options">
-
-                    <button class="option selected"
-                        data-type="LAQ"
-                        onclick="selectAnswerType(this)">
-                        <strong>LAQ</strong>
-                        <small>Long answer</small>
-                    </button>
-
-                    <button class="option"
-                        data-type="SAQ/SN"
-                        onclick="selectAnswerType(this)">
-                        <strong>SAQ / SN</strong>
-                        <small>Short note</small>
-                    </button>
-
-                    <button class="option"
-                        data-type="Viva"
-                        onclick="selectAnswerType(this)">
-                        <strong>Viva</strong>
-                        <small>Rapid revision</small>
-                    </button>
-
-                    <button class="option"
-                        data-type="Revision"
-                        onclick="selectAnswerType(this)">
-                        <strong>Revision</strong>
-                        <small>High-yield notes</small>
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="field">
-
-                <label>ANSWER DEPTH</label>
-
-                <select id="answerDepth">
-                    <option value="maximum">10/10 University Answer</option>
-                    <option value="standard">Standard University Answer</option>
-                    <option value="short">Exam-Time Short Answer</option>
-                    <option value="rapid">Rapid Revision</option>
-                </select>
-
-            </div>
-
-
-            <div class="field">
-
-                <label>EXTRA EMPHASIS</label>
-
-                <select id="answerEmphasis">
-                    <option>Balanced</option>
-                    <option>Diagrams & flowcharts</option>
-                    <option>Tables & comparisons</option>
-                    <option>Clinical correlations</option>
-                    <option>Last-minute revision</option>
-                </select>
-
-            </div>
-
-
-            <div class="field full">
-
-                <div class="btn-row">
-
-                    <button class="yellow-btn" onclick="buildPrompt()">
-                        Generate Prompt
-                    </button>
-
-                    <button class="primary" onclick="generateWithGemini()">
-                        Generate with Gemini
-                    </button>
-
-                    <button class="secondary" onclick="openGemini()">
-                        Open Gemini ↗
-                    </button>
-
-                    <button class="secondary" onclick="copyGeneratedPrompt()">
-                        Copy Prompt
-                    </button>
-
-                </div>
-
-            </div>
-
+      </div>
+      <div class="hero-visual">
+        <div class="orbit"></div>
+        <div class="book">
+          <small>ASHARROW · STUDY SERIES</small>
+          <div class="book-title">Materia<br>Medica<span>.</span></div>
+          <p>REMEDY · REVISION · RECALL</p>
+          <div class="plant"><span>❧</span></div>
+          <div class="book-foot">BHMS / LEARNING COLLECTION</div>
         </div>
-
-    </div>
-
-
-    <!-- GENERATED PROMPT -->
-
-    <div class="panel" id="promptPanel" style="display:none">
-
-        <div class="section-head">
-
-            <div>
-                <h2>Generated Examination Prompt</h2>
-                <p>
-                    This is the prompt AshArchives sends to Gemini.
-                </p>
-            </div>
-
-            <button class="secondary" onclick="copyGeneratedPrompt()">
-                Copy
-            </button>
-
-        </div>
-
-        <textarea id="generatedPrompt"
-            style="min-height:380px;font-family:monospace;font-size:12px">
-        </textarea>
-
-    </div>
-
-
-    <!-- API -->
-
-    <div class="panel">
-
-        <div class="section-head">
-
-            <div>
-                <h2>Gemini BYOK</h2>
-
-                <p>
-                    Bring your own Gemini API key. Your key is kept locally
-                    in this browser and is not sent to AshArchives servers.
-                </p>
-            </div>
-
-            <div class="status">
-                <span class="status-dot"></span>
-                Client-side
-            </div>
-
-        </div>
-
-
-        <div class="builder">
-
-            <div class="field">
-
-                <label>GEMINI API KEY</label>
-
-                <input
-                    id="apiKey"
-                    type="password"
-                    placeholder="AIza..."
-                >
-
-            </div>
-
-
-            <div class="field">
-
-                <label>MODEL</label>
-
-                <select id="geminiModel">
-
-                    <option value="gemini-3.7-flash">
-                        Gemini 3.7 Flash — recommended
-                    </option>
-
-                    <option value="gemini-3.6-flash">
-                        Gemini 3.6 Flash
-                    </option>
-
-                    <option value="gemini-3.5-flash">
-                        Gemini 3.5 Flash
-                    </option>
-
-                    <option value="gemini-3.5-flash-lite">
-                        Gemini 3.5 Flash-Lite
-                    </option>
-
-                </select>
-
-            </div>
-
-            <div class="field full">
-
-                <div class="btn-row">
-
-                    <button class="primary" onclick="saveAPI()">
-                        Save API Key
-                    </button>
-
-                    <button class="secondary"
-                        onclick="window.open('https://aistudio.google.com/apikey','_blank')">
-                        Get your free Gemini API key ↗
-                    </button>
-
-                    <button class="secondary" onclick="clearAPI()">
-                        Clear Key
-                    </button>
-
-                </div>
-
-                <div id="apiStatus" class="api-status warning">
-                    No API key saved.
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- AI RESULT -->
-
-    <div class="panel result" id="resultPanel">
-
-        <div class="section-head">
-
-            <div>
-
-                <h2>AI Answer</h2>
-
-                <div class="status" id="generationStatus">
-                    <span class="status-dot"></span>
-                    Ready
-                </div>
-
-            </div>
-
-            <div class="btn-row">
-
-                <button class="secondary" onclick="copyAnswer()">
-                    Copy
-                </button>
-
-                <button class="secondary" onclick="downloadAnswer()">
-                    Download
-                </button>
-
-            </div>
-
-        </div>
-
-        <div id="answerOutput" class="answer-output">
-        </div>
-
-    </div>
-
-
-    <!-- TOOLS -->
-
-    <div class="panel">
-
-        <div class="section-head">
-
-            <div>
-                <h2>More than an answer</h2>
-                <p>
-                    Exam tools built around the way MBBS students actually revise.
-                </p>
-            </div>
-
-        </div>
-
-        <div class="tools-grid">
-
-            <div class="tool" onclick="openPYQSubjectModal()">
-                <div class="tool-icon">◫</div>
-                <h3>PYQ Bank</h3>
-                <p>
-                    Filter university questions by subject, paper,
-                    tier and question type.
-                </p>
-            </div>
-
-            <div class="tool" onclick="randomQuestion()">
-                <div class="tool-icon">⚡</div>
-                <h3>Random High-Yield</h3>
-                <p>
-                    Get one important question for active recall.
-                </p>
-            </div>
-
-            <div class="tool" onclick="showPage('dashboard')">
-                <div class="tool-icon">◆</div>
-                <h3>High-Yield Map</h3>
-                <p>
-                    See the most important topics across all subjects.
-                </p>
-            </div>
-
-            <div class="tool" onclick="loadHistory()">
-                <div class="tool-icon">↺</div>
-                <h3>Answer History</h3>
-                <p>
-                    Reopen topics and prompts generated in this browser.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ========================================================= -->
-<!-- PYQ PAGE -->
-<!-- ========================================================= -->
-
-<section id="pyq" class="page">
-
-    <div class="panel">
-
-        <div class="section-head">
-
-            <div>
-                <div class="kicker">MUHS QUESTION BANK</div>
-
-                <h2>MBBS PYQs & Bhalani Dataset</h2>
-
-                <p>
-                    High-yield questions indexed from the AshArchives and Bhalani dataset.
-                </p>
-            </div>
-
-            <button class="yellow-btn" onclick="randomQuestion()">
-                Random High-Yield
-            </button>
-
-        </div>
-
-
-        <div class="pyq-toolbar">
-
-            <input
-                id="pyqSearch"
-                placeholder="Search questions, topics..."
-                oninput="renderPYQs()"
-            >
-
-            <select id="pyqSubject" onchange="renderPYQs()">
-                <option value="All">All subjects</option>
-                <option value="Pharmacology">Pharmacology</option>
-                <option value="Pathology">Pathology</option>
-                <option value="Microbiology">Microbiology</option>
-                <option value="Forensic Medicine & Toxicology">
-                    Forensic Medicine & Toxicology
-                </option>
-                <option value="Anatomy">Anatomy</option>
-                <option value="Physiology">Physiology</option>
-                <option value="Biochemistry">Biochemistry</option>
-            </select>
-
-            <select id="pyqPaper" onchange="renderPYQs()">
-                <option value="All">All papers</option>
-                <option value="Paper I">Paper I</option>
-                <option value="Paper II">Paper II</option>
-            </select>
-
-            <select id="pyqTier" onchange="renderPYQs()">
-                <option value="All">All tiers</option>
-                <option value="Tier 1">Tier 1 (**** / ***)</option>
-                <option value="Tier 2">Tier 2 (**)</option>
-                <option value="Tier 3">Tier 3 (*)</option>
-                <option value="Tier 4">Tier 4 (Unmarked/General)</option>
-            </select>
-
-        </div>
-
-
-        <div class="pyq-toolbar">
-
-            <select id="pyqType" onchange="renderPYQs()">
-                <option value="All">All question types</option>
-                <option value="LAQ">LAQ</option>
-                <option value="SAQ/SN">SAQ / Short Note</option>
-            </select>
-
-            <select id="pyqSort" onchange="renderPYQs()">
-                <option value="priority">Highest priority first</option>
-                <option value="subject">Subject</option>
-                <option value="topic">Topic</option>
-            </select>
-
-            <button class="secondary" onclick="clearPYQFilters()">
-                Clear Filters
-            </button>
-
-        </div>
-
-
-        <div class="pyq-summary" id="pyqSummary"></div>
-
-        <div id="pyqList" class="pyq-list"></div>
-
-    </div>
-
-</section>
-
-
-<!-- ========================================================= -->
-<!-- HIGH YIELD DASHBOARD -->
-<!-- ========================================================= -->
-
-<section id="dashboard" class="page">
-
-    <div class="panel">
-
-        <div class="section-head">
-
-            <div>
-                <div class="kicker">REVISION MAP</div>
-                <h2>Ultra-High-Yield Dashboard</h2>
-                <p>
-                    The most exam-relevant areas from the supplied dataset.
-                </p>
-            </div>
-
-        </div>
-
-        <div class="subject-grid" id="subjectDashboard"></div>
-
-    </div>
-
-    <div class="panel">
-
-        <div class="section-head">
-
-            <div>
-                <h2>Tier system</h2>
-                <p>
-                    Use tiers to allocate revision time instead of treating
-                    every question equally.
-                </p>
-            </div>
-
-        </div>
-
-        <div class="tools-grid">
-
-            <div class="tool">
-                <div class="badge tier1">TIER 1 (**** / ***)</div>
-                <h3 style="margin-top:12px">Extremely important</h3>
-                <p>
-                    Questions that should receive priority in serious exam preparation.
-                </p>
-            </div>
-
-            <div class="tool">
-                <div class="badge tier2">TIER 2 (**)</div>
-                <h3 style="margin-top:12px">High yield</h3>
-                <p>
-                    Important questions to cover after Tier 1.
-                </p>
-            </div>
-
-            <div class="tool">
-                <div class="badge tier3">TIER 3 (*)</div>
-                <h3 style="margin-top:12px">Moderate yield</h3>
-                <p>
-                    Useful for broader coverage and final revision.
-                </p>
-            </div>
-
-            <div class="tool">
-                <div class="tool-icon">◎</div>
-                <h3>Exam strategy</h3>
-                <p>
-                    Finish Tier 1 → consolidate Tier 2 → use Tier 3/4
-                    to close gaps.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-</div>
-
-</main>
-
-
-<footer>
-    <div class="footer-inner">
+        <div class="float-tag tag-one">✦ Focused learning</div>
+        <div class="float-tag tag-two">✓ All four years</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="stat">
+        <small>CURRICULUM</small>
+        <strong>4 <span>years</span></strong>
+        <p>From foundations to clinical subjects</p>
+      </article>
+      <article class="stat">
+        <small>SUBJECT LIBRARY</small>
+        <strong id="subjectCount">20+</strong>
+        <p>Explore your BHMS learning areas</p>
+      </article>
+      <article class="stat yellow-stat">
+        <small>FEATURED RESOURCE</small>
+        <strong class="featured-title">Calcarea Sulphurica</strong>
+        <p>Materia Medica demo lecture</p>
+        <a href="#materia">Go to lecture ↗</a>
+      </article>
+    </section>
+
+    <section class="section" id="subjects">
+      <div class="section-heading">
         <div>
-            <strong>ashArchives</strong> — MBBS study platform
+          <div class="eyebrow">THE CURRICULUM</div>
+          <h2>Find your subject<span>.</span></h2>
+          <p>Browse by professional year or search the library.</p>
         </div>
+        <label class="search">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search subjects..." aria-label="Search subjects">
+          <kbd>Ctrl K</kbd>
+        </label>
+      </div>
 
-        <div>
-            Student-built • MUHS-focused • AI-assisted
+      <div class="filters">
+        <button class="filter active" data-year="all">All subjects</button>
+        <button class="filter" data-year="1">First BHMS</button>
+        <button class="filter" data-year="2">Second BHMS</button>
+        <button class="filter" data-year="3">Third BHMS</button>
+        <button class="filter" data-year="4">Fourth BHMS</button>
+      </div>
+      <div class="subject-grid" id="subjectGrid"></div>
+      <p id="emptyState" class="empty" hidden>No subjects found. Try another search.</p>
+    </section>
+
+    <section class="materia-section" id="materia">
+      <div class="materia-copy">
+        <div class="eyebrow">FEATURED · MATERIA MEDICA</div>
+        <h2>Start with a remedy.<br><span>Build your recall.</span></h2>
+        <p>Watch the Calcarea Sulphurica demo lecture in the embedded player.</p>
+        <div class="pills"><span>▶ Demo lecture</span><span>Materia Medica</span></div>
+        <a class="button dark" target="_blank" rel="noopener"
+           href="https://drive.google.com/file/d/1uCtMyTyD-uAhNOS9gdRqaZ6vJWIc_aeE/view?usp=drivesdk">
+          Open in Google Drive ↗
+        </a>
+        <p class="fine-print">If playback is unavailable, check the file's Google Drive sharing permissions.</p>
+      </div>
+
+      <div class="video-card">
+        <div class="video-top"><span>● ● ●</span> ASHARROW / LECTURE PREVIEW</div>
+        <div class="video-wrapper">
+          <iframe
+            src="https://drive.google.com/file/d/1uCtMyTyD-uAhNOS9gdRqaZ6vJWIc_aeE/preview"
+            title="Calcarea Sulphurica Materia Medica demo lecture"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
         </div>
-    </div>
-</footer>
-
-
-<!-- ========================================================= -->
-<!-- PYQ SUBJECT MODAL -->
-<!-- ========================================================= -->
-
-<div class="modal" id="pyqModal">
-
-    <div class="modal-box">
-
-        <div class="modal-head">
-
-            <div>
-                <h2 style="font-family:Manrope">
-                    PYQ Question Bank
-                </h2>
-
-                <p style="color:var(--muted);font-size:13px;margin-top:5px">
-                    Select the subject you want to revise.
-                </p>
-            </div>
-
-            <button class="close" onclick="closePYQModal()">×</button>
-
+        <div class="video-info">
+          <div class="play-icon">▶</div>
+          <div><b>Calcarea Sulphurica</b><small>Materia Medica · Demo lecture</small></div>
+          <a target="_blank" rel="noopener"
+             href="https://drive.google.com/file/d/1uCtMyTyD-uAhNOS9gdRqaZ6vJWIc_aeE/view?usp=drivesdk">↗</a>
         </div>
+      </div>
+    </section>
 
+    <section class="section resources" id="resources">
+      <div class="eyebrow">KEEP LEARNING</div>
+      <h2>Your study toolkit<span>.</span></h2>
+      <div class="resource-grid">
+        <a class="resource" href="#subjects"><span class="resource-icon">▦</span><div><b>Subject directory</b><p>Find your subject by year.</p></div><span>↗</span></a>
+        <a class="resource" href="#materia"><span class="resource-icon green">▶</span><div><b>Demo lectures</b><p>Explore the featured lecture.</p></div><span>↗</span></a>
+        <a class="resource" href="https://www.nch.org.in/" target="_blank" rel="noopener"><span class="resource-icon black">↗</span><div><b>Official NCH website</b><p>Curriculum and official updates.</p></div><span>↗</span></a>
+      </div>
+    </section>
 
-        <div class="subject-buttons">
+    <footer>
+      <b>AshArrow <span>BHMS</span></b>
+      <span>Built for the BHMS journey.</span>
+      <span>Developed by <b>asharism.co</b></span>
+    </footer>
+  </main>
 
-            <button class="subject-btn"
-                onclick="openSubjectPYQ('Pathology')">
-                Pathology
-            </button>
-
-            <button class="subject-btn"
-                onclick="openSubjectPYQ('Pharmacology')">
-                Pharmacology
-            </button>
-
-            <button class="subject-btn"
-                onclick="openSubjectPYQ('Microbiology')">
-                Microbiology
-            </button>
-
-            <button class="subject-btn"
-                onclick="openSubjectPYQ('Forensic Medicine & Toxicology')">
-                Forensic Medicine & Toxicology
-            </button>
-
-            <button class="subject-btn"
-                onclick="openSubjectPYQ('Anatomy')">
-                Anatomy
-            </button>
-
-            <button class="subject-btn"
-                onclick="openSubjectPYQ('Physiology')">
-                Physiology
-            </button>
-
-            <button class="subject-btn"
-                onclick="openSubjectPYQ('Biochemistry')">
-                Biochemistry
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- ========================================================= -->
-<!-- TOAST -->
-<!-- ========================================================= -->
-
-<div class="toast" id="toast"></div>
-    <script src="database.js"></script>
-    <script src="app.js"></script>
+  <script src="database.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
